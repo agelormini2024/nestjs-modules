@@ -1,0 +1,50 @@
+name: Publish to GitHub Packages
+
+# Se dispara cuando se hace push de un tag con formato v* (ej: v1.0.0, v0.2.1)
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    # Permisos necesarios: leer el repo y escribir en GitHub Packages
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run tests
+        run: pnpm -r test
+
+      - name: Build packages
+        run: pnpm -r build
+
+      - name: Publish @agelormini2024/auth
+        run: pnpm --filter @agelormini2024/auth publish --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish @agelormini2024/payments
+        run: pnpm --filter @agelormini2024/payments publish --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
