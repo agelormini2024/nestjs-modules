@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    /**
+     * ES2020 es el target mínimo recomendado para NestJS.
+     * Soporta async/await nativo, optional chaining y nullish coalescing.
+     */
+    "target": "ES2020",
+    "module": "CommonJS",
+    "lib": ["ES2020"],
+
+    /**
+     * Genera archivos .d.ts y sus mapas para que los consumidores
+     * del paquete tengan autocompletado e IntelliSense completo.
+     */
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+
+    /**
+     * Requerido por NestJS para que funcionen los decoradores
+     * (@Module, @Injectable, @Controller, etc.) y la inyección
+     * de dependencias basada en tipos en tiempo de ejecución.
+     */
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  }
+}
