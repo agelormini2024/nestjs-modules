@@ -77,4 +77,4 @@ Librería personal de módulos NestJS reutilizables, publicados como paquetes pr
 - [x] **Fase 1** — Scaffold del monorepo (workspace, tsup, tsconfig base, estructura de carpetas)
 - [x] **Fase 2** — Paquete `@agelormini2024/auth`
 - [x] **Fase 3** — Paquete `@agelormini2024/payments`
-- [ ] **Fase 4** — Pipeline de publicación a GitHub Packages (GitHub Actions)
+- [x] **Fase 4** — Pipeline de publicación a GitHub Packages (GitHub Actions)
