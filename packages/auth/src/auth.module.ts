@@ -3,7 +3,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { AuthService } from './auth.service';
 import { AUTH_OPTIONS, USER_REPOSITORY } from './constants/auth.constants';
-import { AuthModuleAsyncOptions, AuthModuleOptions } from './interfaces/auth-module-options.interface';
+import type { AuthModuleAsyncOptions, AuthModuleOptions } from './interfaces/auth-module-options.interface';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { LocalStrategy } from './strategies/local.strategy';
 

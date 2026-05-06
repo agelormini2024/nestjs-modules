@@ -2,8 +2,9 @@ import { Inject, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { USER_REPOSITORY } from './constants/auth.constants';
-import { JwtPayload } from './interfaces/jwt-payload.interface';
-import { AuthUser, UserRepository } from './interfaces/user-repository.interface';
+import type { JwtPayload } from './interfaces/jwt-payload.interface';
+import { UserRepository } from './interfaces/user-repository.interface';
+import type { AuthUser } from './interfaces/user-repository.interface';
 
 /** Respuesta que devuelve el login con el token de acceso */
 export interface LoginResult {

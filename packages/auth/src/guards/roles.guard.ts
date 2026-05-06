@@ -1,7 +1,7 @@
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { ROLES_KEY } from '../constants/auth.constants';
-import { AuthUser } from '../interfaces/user-repository.interface';
+import type { AuthUser } from '../interfaces/user-repository.interface';
 
 /**
  * Guard de control de acceso basado en roles (RBAC).

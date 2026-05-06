@@ -1,5 +1,5 @@
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
-import { AuthUser } from '../interfaces/user-repository.interface';
+import type { AuthUser } from '../interfaces/user-repository.interface';
 
 /**
  * Decorador de parámetro que extrae el usuario autenticado del request.

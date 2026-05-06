@@ -2,9 +2,10 @@ import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { AUTH_OPTIONS, USER_REPOSITORY } from '../constants/auth.constants';
-import { AuthModuleOptions } from '../interfaces/auth-module-options.interface';
-import { JwtPayload } from '../interfaces/jwt-payload.interface';
-import { AuthUser, UserRepository } from '../interfaces/user-repository.interface';
+import type { AuthModuleOptions } from '../interfaces/auth-module-options.interface';
+import type { JwtPayload } from '../interfaces/jwt-payload.interface';
+import { UserRepository } from '../interfaces/user-repository.interface';
+import type { AuthUser } from '../interfaces/user-repository.interface';
 
 /**
  * Estrategia JWT de Passport para NestJS.
