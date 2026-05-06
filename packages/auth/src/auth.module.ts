@@ -49,15 +49,23 @@ export class AuthModule {
         ...(asyncOptions.imports ?? []),
         PassportModule,
         /**
-         * JwtModule.registerAsync permite configurar el módulo de JWT de forma
-         * asíncrona, leyendo el secret desde AUTH_OPTIONS que ya fue resuelto.
+         * JwtModule.registerAsync corre la misma factory que AuthModule recibió,
+         * transformando el resultado a las opciones que JwtModule necesita.
+         * Se pasan directamente imports e inject para evitar cruzar scopes de módulo
+         * (el token AUTH_OPTIONS no es visible dentro del contexto de JwtModule).
          */
         JwtModule.registerAsync({
-          useFactory: (options: AuthModuleOptions) => ({
-            secret: options.secret,
-            signOptions: { expiresIn: options.expiresIn ?? '7d' },
-          }),
-          inject: [AUTH_OPTIONS],
+          imports: asyncOptions.imports ?? [],
+          useFactory: async (...args: any[]) => {
+            const options: AuthModuleOptions = await Promise.resolve(
+              asyncOptions.useFactory(...args),
+            );
+            return {
+              secret: options.secret,
+              signOptions: { expiresIn: options.expiresIn ?? '7d' },
+            };
+          },
+          inject: asyncOptions.inject ?? [],
         }),
       ],
       providers: [

@@ -1,6 +1,6 @@
 {
   "name": "@agelormini2024/auth",
-  "version": "0.2.2 ",
+  "version": "0.2.3",
   "description": "Módulo de autenticación reutilizable para NestJS (JWT + Passport)",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -19,6 +19,9 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "test": "jest --passWithNoTests"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0"
   },
   "peerDependencies": {
     "@nestjs/common": "^10.0.0",

@@ -21,6 +21,7 @@ export default defineConfig({
   clean: true,
   sourcemap: true,
   external: [
+    // NestJS + Passport: peerDependencies, el consumidor ya las tiene
     '@nestjs/common',
     '@nestjs/core',
     '@nestjs/jwt',
@@ -29,5 +30,10 @@ export default defineConfig({
     'passport-jwt',
     'passport-local',
     'reflect-metadata',
+    // bcrypt usa un binding nativo (.node). Si se bundlea, __dirname del bundle
+    // apunta al directorio de output (dist/) y node-gyp-build no puede encontrar
+    // el prebuild. Marcándolo external, el require se resuelve en runtime desde
+    // node_modules del consumidor donde el binario está correctamente instalado.
+    'bcrypt',
   ],
 });
