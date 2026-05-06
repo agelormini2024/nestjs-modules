@@ -1,6 +1,6 @@
 {
   "name": "@agelormini2024/auth",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Módulo de autenticación reutilizable para NestJS (JWT + Passport)",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
