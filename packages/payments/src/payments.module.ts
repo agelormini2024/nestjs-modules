@@ -1,6 +1,6 @@
 import { DynamicModule, Module } from '@nestjs/common';
 import { PAYMENTS_OPTIONS } from './constants/payments.constants';
-import { PaymentsModuleAsyncOptions } from './interfaces/payments-module-options.interface';
+import type { PaymentsModuleAsyncOptions } from './interfaces/payments-module-options.interface';
 import { MercadoPagoService } from './providers/mercadopago/mercadopago.service';
 import { StripeService } from './providers/stripe/stripe.service';
 

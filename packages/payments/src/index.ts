@@ -13,7 +13,7 @@ export { StripeService } from './providers/stripe/stripe.service';
 export { MercadoPagoService } from './providers/mercadopago/mercadopago.service';
 
 // Interfaces — para configurar el módulo y tipar las opciones
-export {
+export type {
   PaymentsModuleOptions,
   PaymentsModuleAsyncOptions,
   StripeOptions,

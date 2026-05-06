@@ -1,7 +1,7 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 import Stripe from 'stripe';
 import { PAYMENTS_OPTIONS } from '../../constants/payments.constants';
-import { PaymentsModuleOptions } from '../../interfaces/payments-module-options.interface';
+import type { PaymentsModuleOptions } from '../../interfaces/payments-module-options.interface';
 
 /**
  * Servicio que encapsula la integración con Stripe.

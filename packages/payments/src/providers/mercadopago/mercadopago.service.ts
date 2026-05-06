@@ -5,7 +5,7 @@ import type { PaymentCreateRequest } from 'mercadopago/dist/clients/payment/crea
 import type { PreferenceResponse } from 'mercadopago/dist/clients/preference/commonTypes';
 import type { PreferenceRequest } from 'mercadopago/dist/clients/preference/commonTypes';
 import { PAYMENTS_OPTIONS } from '../../constants/payments.constants';
-import { PaymentsModuleOptions } from '../../interfaces/payments-module-options.interface';
+import type { PaymentsModuleOptions } from '../../interfaces/payments-module-options.interface';
 
 /**
  * Servicio que encapsula la integración con MercadoPago.
